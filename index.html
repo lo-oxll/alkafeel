@@ -1,48 +1,97 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="ar" dir="rtl" data-theme="light">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>العتبة العباسية المقدسة</title>
-<meta name="description" content="الروابط الرسمية للعتبة العباسية المقدسة: الموقع الإلكتروني، التطبيقات، ومنصات التواصل الاجتماعي">
+<meta name="description" content="الروابط الرسمية للعتبة العباسية المقدسة: الموقع الإلكتروني، منصات التواصل الاجتماعي، والتطبيقات">
 <meta property="og:title" content="العتبة العباسية المقدسة">
-<meta property="og:image" content="logo.jpg">
-<meta name="theme-color" content="#ffffff">
-<link rel="icon" href="logo.jpg">
+<meta property="og:image" content="logo-day.jpg">
+<meta name="theme-color" content="#f6f5f1">
+<link rel="icon" href="logo-day.jpg">
+<script>
+  (function(){var t;try{t=localStorage.getItem('theme')}catch(e){}
+  if(!t)t=window.matchMedia&&matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';
+  document.documentElement.setAttribute('data-theme',t);})();
+</script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
 <main class="wrap">
+
+  <!-- الشريط العلوي: التاريخ الهجري (يمين) — الشعار وزر الثيم (يسار) -->
+  <div class="topbar">
+    <div class="hijri" aria-live="polite">
+      <span class="hijri-day" id="hDay"></span>
+      <strong class="hijri-date" id="hDate"></strong>
+      <span class="hijri-greg" id="gDate"></span>
+    </div>
+    <div class="tools">
+      <button class="theme-btn" id="themeBtn" type="button" aria-label="تبديل الوضع"><i class="fa-solid fa-moon"></i></button>
+      <span class="logo-box">
+        <img class="logo logo-day" src="logo-day.jpg" alt="شعار العتبة العباسية المقدسة">
+        <img class="logo logo-night" src="logo-night.jpg" alt="شعار العتبة العباسية المقدسة">
+      </span>
+    </div>
+  </div>
+
   <header class="head">
-    <img class="logo" src="logo.jpg" alt="شعار العتبة العباسية المقدسة">
     <h1>العتبة العباسية المقدسة</h1>
     <p>الروابط الرسمية</p>
   </header>
 
-  <section>
-    <h2>المواقع الإلكترونية</h2>
-    <a class="item" href="https://alkafeel.net/" target="_blank" rel="noopener"><i style="--c:#1f7a3f">WEB</i><span>موقع العتبة العباسية المقدسة الإلكتروني</span></a>
-    <a class="item" href="https://alkafeel.net/zyara/" target="_blank" rel="noopener"><i style="--c:#b8863b">ZYR</i><span>موقع زيارة بالإنابة</span></a>
+  <!-- المناسبة الدينية -->
+  <section class="occasion" id="occasion">
+    <div class="occ-icon"><i class="fa-solid fa-star-and-crescent"></i></div>
+    <div class="occ-body">
+      <span class="occ-label" id="occLabel"></span>
+      <strong class="occ-text" id="occText"></strong>
+      <span class="occ-meta" id="occMeta"></span>
+    </div>
   </section>
 
   <section>
-    <h2>التطبيقات</h2>
-    <a class="item" href="https://play.google.com/store/apps/details?id=net.alkafeel.arabic&hl=ar" target="_blank" rel="noopener"><i style="--c:#3ddc84">AND</i><span>تطبيق العتبة العباسية المقدسة للأندرويد</span></a>
-    <a class="item" href="https://apps.apple.com/us/app/%D8%A7%D9%84%D8%B9%D8%AA%D8%A8%D8%A9-%D8%A7%D9%84%D8%B9%D8%A8%D8%A7%D8%B3%D9%8A%D8%A9-%D8%A7%D9%84%D9%85%D9%82%D8%AF%D8%B3%D8%A9/id1022411525?l=ar" target="_blank" rel="noopener"><i style="--c:#111">iOS</i><span>تطبيق العتبة العباسية المقدسة للآيفون</span></a>
+    <h2>المواقع الإلكترونية</h2>
+    <a class="item" href="https://alkafeel.net/" target="_blank" rel="noopener">
+      <i class="ic fa-solid fa-globe" style="--c:#1f7a3f"></i><span>موقع العتبة العباسية المقدسة الإلكتروني</span><i class="go fa-solid fa-chevron-left"></i>
+    </a>
+    <a class="item" href="https://alkafeel.net/zyara/" target="_blank" rel="noopener">
+      <i class="ic fa-solid fa-mosque" style="--c:#b8863b"></i><span>موقع زيارة بالإنابة</span><i class="go fa-solid fa-chevron-left"></i>
+    </a>
   </section>
 
   <section>
     <h2>التواصل الاجتماعي</h2>
-    <a class="item" href="https://www.facebook.com/share/1cf81v743e/?mibextid=wwXIfr" target="_blank" rel="noopener"><i style="--c:#1877f2">FB</i><span>فيسبوك</span></a>
-    <a class="item" href="https://www.instagram.com/alkafeel.global.network" target="_blank" rel="noopener"><i style="--c:#d6249f">IG</i><span>إنستغرام</span></a>
-    <a class="item" href="https://x.com/AlkafeelAbbas" target="_blank" rel="noopener"><i style="--c:#000">X</i><span>إكس (تويتر)</span></a>
-    <a class="item" href="https://www.tiktok.com/@abbasholyshrine" target="_blank" rel="noopener"><i style="--c:#010101">TT</i><span>تيك توك</span></a>
-    <a class="item" href="https://youtube.com/@alkafeelnet" target="_blank" rel="noopener"><i style="--c:#ff0000">YT</i><span>يوتيوب</span></a>
-    <a class="item" href="https://t.me/alkafeel_global_network" target="_blank" rel="noopener"><i style="--c:#229ed9">TG</i><span>تيليجرام</span></a>
-    <a class="item" href="https://whatsapp.com/channel/0029VbAtTZyCMY08QUZW9N36" target="_blank" rel="noopener"><i style="--c:#25d366">WA</i><span>قناة العتبة العباسية المقدسة على واتساب</span></a>
+    <div class="grid">
+      <a class="tile" href="https://www.facebook.com/share/1cf81v743e/?mibextid=wwXIfr" target="_blank" rel="noopener"><i class="ic fa-brands fa-facebook-f" style="--c:#1877f2"></i><span>فيسبوك</span></a>
+      <a class="tile" href="https://www.instagram.com/alkafeel.global.network" target="_blank" rel="noopener"><i class="ic fa-brands fa-instagram" style="--c:#d6249f"></i><span>إنستغرام</span></a>
+      <a class="tile" href="https://x.com/AlkafeelAbbas" target="_blank" rel="noopener"><i class="ic fa-brands fa-x-twitter" style="--c:#111"></i><span>إكس</span></a>
+      <a class="tile" href="https://www.tiktok.com/@abbasholyshrine" target="_blank" rel="noopener"><i class="ic fa-brands fa-tiktok" style="--c:#010101"></i><span>تيك توك</span></a>
+      <a class="tile" href="https://youtube.com/@alkafeelnet" target="_blank" rel="noopener"><i class="ic fa-brands fa-youtube" style="--c:#ff0000"></i><span>يوتيوب</span></a>
+      <a class="tile" href="https://t.me/alkafeel_global_network" target="_blank" rel="noopener"><i class="ic fa-brands fa-telegram" style="--c:#229ed9"></i><span>تيليجرام</span></a>
+      <a class="tile wide" href="https://whatsapp.com/channel/0029VbAtTZyCMY08QUZW9N36" target="_blank" rel="noopener"><i class="ic fa-brands fa-whatsapp" style="--c:#25d366"></i><span>واتساب</span></a>
+    </div>
+  </section>
+
+  <!-- التطبيقات: آخر قسم في الأسفل (أندرويد يمين / آيفون يسار) -->
+  <section>
+    <h2>تطبيقات العتبة العباسية المقدسة</h2>
+    <div class="apps">
+      <a class="store" href="https://play.google.com/store/apps/details?id=net.alkafeel.arabic&hl=ar" target="_blank" rel="noopener">
+        <i class="fa-brands fa-google-play"></i>
+        <span><small>حمّله من</small><b>Google Play</b></span>
+      </a>
+      <a class="store" href="https://apps.apple.com/us/app/%D8%A7%D9%84%D8%B9%D8%AA%D8%A8%D8%A9-%D8%A7%D9%84%D8%B9%D8%A8%D8%A7%D8%B3%D9%8A%D8%A9-%D8%A7%D9%84%D9%85%D9%82%D8%AF%D8%B3%D8%A9/id1022411525?l=ar" target="_blank" rel="noopener">
+        <i class="fa-brands fa-apple"></i>
+        <span><small>حمّله من</small><b>App Store</b></span>
+      </a>
+    </div>
   </section>
 
   <footer>© العتبة العباسية المقدسة</footer>
 </main>
+<script src="occasions.js"></script>
+<script src="app.js"></script>
 </body>
 </html>
