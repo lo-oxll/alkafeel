@@ -42,6 +42,13 @@
     return 'بعد ' + n + ' يوماً';
   }
 
+  /* مناسبات يوم 30: إن كان الشهر 29 يوماً تُنقل إلى يوم 29 */
+  function occFor(t) {
+    var x = hijri(t), list = (OCCASIONS[x.month + '-' + x.day] || []).slice();
+    if (x.day === 29 && hijri(t + DAY).day === 1) list = list.concat(OCCASIONS[x.month + '-30'] || []);
+    return list.length ? { h: x, list: list } : null;
+  }
+
   var ts = todayTs();
   var h = hijri(ts);
   var wd = new Intl.DateTimeFormat('ar-IQ-u-nu-latn', { timeZone: 'UTC', weekday: 'long' }).format(new Date(ts));
@@ -56,20 +63,19 @@
   var text = document.getElementById('occText');
   var meta = document.getElementById('occMeta');
 
-  var todays = OCCASIONS[h.month + '-' + h.day];
+  var todays = occFor(ts);
   if (todays) {
     label.textContent = 'مناسبة اليوم';
-    text.textContent = todays.join(' • ');
+    text.textContent = todays.list.join(' • ');
     meta.textContent = h.day + ' ' + MONTHS[h.month - 1];
     box.classList.add('is-today');
   } else {
     for (var i = 1; i <= 400; i++) {
-      var f = hijri(ts + i * DAY);
-      var k = OCCASIONS[f.month + '-' + f.day];
+      var k = occFor(ts + i * DAY);
       if (k) {
         label.textContent = 'المناسبة القادمة';
-        text.textContent = k.join(' • ');
-        meta.textContent = daysText(i) + ' — ' + f.day + ' ' + MONTHS[f.month - 1];
+        text.textContent = k.list.join(' • ');
+        meta.textContent = daysText(i) + ' — ' + k.h.day + ' ' + MONTHS[k.h.month - 1];
         break;
       }
     }
